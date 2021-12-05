@@ -3,5 +3,5 @@ default:
     default:
       contexts:
         - FeatureContext:
-            github_username:   VirgillP
-            github_password:   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
+            github_username:   YourGithubUsername
+            github_password:   YourGeneratedToken
