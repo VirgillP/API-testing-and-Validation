@@ -1,10 +1,10 @@
 <h1>API testing and Validation</h1>
 
-###Description
+### Description
 <p>How to validate your API but from the consumer point of view, and test 
 to confirm that problems experienced by your end users are being solved</p>
 
-###API Testing and Validation
+### API Testing and Validation
 
 GitHub has disabled Basic Auth for API Authentication since Nov 5th, 2020.
 https://docs.github.com/en/rest/overview/other-authentication-methods#basic-authentication
