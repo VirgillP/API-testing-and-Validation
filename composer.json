@@ -1,6 +1,7 @@
 {
     "require": {
         "behat/behat": "3.*",
-        "guzzlehttp/guzzle": "6.*"
+        "guzzlehttp/guzzle": "6.*",
+      "ext-curl": "*"
     }
 }
