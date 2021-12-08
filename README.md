@@ -61,10 +61,10 @@ To prepare your workspace to actually write tests, you'll need to run behat --in
 To run a specific feature you can use the following command i.e. instead of `vendor/bin/behat` which
 will run all features
 
-### `vendor/bin/behat features/search.feature`
-### `vendor/bin/behat features/my-repos.feature`
-### `vendor/bin/behat features/repo-create.feature`
-### `vendor/bin/behat features/repo-watch.feature`
+ `vendor/bin/behat features/search.feature`
+ `vendor/bin/behat features/my-repos.feature`
+ `vendor/bin/behat features/repo-create.feature`
+ `vendor/bin/behat features/repo-watch.feature`
 
 
 
