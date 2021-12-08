@@ -39,32 +39,32 @@ Install the composer package manager. The easiest way to do that is to go to the
 download page and copy the code and paste it into your terminal (PowerShell) from
 their website. Here is a snippet of the code;
 
-`php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"`
-`php -r "if (hash_file('sha384', 'composer-setup.php') === '906a84df04cea2aa72f40b5f787e49f22d4c2f19492ac310e8cba5b96ac8b64115ac402c8cd292b8a03482574915d1a8') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"`
-`php composer-setup.php`
-`php -r "unlink('composer-setup.php');"`
+#### `php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"`
+#### `php -r "if (hash_file('sha384', 'composer-setup.php') === '906a84df04cea2aa72f40b5f787e49f22d4c2f19492ac310e8cba5b96ac8b64115ac402c8cd292b8a03482574915d1a8') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"`
+#### `php composer-setup.php`
+#### `php -r "unlink('composer-setup.php');"`
 
 <br>
 Next you need to install Behat in your project parent directory as well
 
-### `php composer.phar require behat/behat 3.* `,
+#### `php composer.phar require behat/behat 3.* `,
 
 <br>
 Now we need to check to see if behat was installed correctly
 
-### `vendor/bin/behat -V`
+#### `vendor/bin/behat -V`
 
 To prepare your workspace to actually write tests, you'll need to run behat --init
 
-### `vendor/bin/behat --init`
+#### `vendor/bin/behat --init`
 
 To run a specific feature you can use the following command i.e. instead of `vendor/bin/behat` which
 will run all features
 
- `vendor/bin/behat features/search.feature`
- `vendor/bin/behat features/my-repos.feature`
- `vendor/bin/behat features/repo-create.feature`
- `vendor/bin/behat features/repo-watch.feature`
+ #### `vendor/bin/behat features/search.feature`
+ #### `vendor/bin/behat features/my-repos.feature`
+ #### `vendor/bin/behat features/repo-create.feature`
+ #### `vendor/bin/behat features/repo-watch.feature`
 
 
 
