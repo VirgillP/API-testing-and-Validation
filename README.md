@@ -1,7 +1,7 @@
 <h1>API testing and Validation</h1>
 
 ### Description
-<p>How to validate your API but from the consumer point of view, and test 
+<p>How to test and validate your API behaviour from a consumer point of view, and test 
 to confirm that problems experienced by your end users are being solved</p>
 
 ### API Testing and Validation
