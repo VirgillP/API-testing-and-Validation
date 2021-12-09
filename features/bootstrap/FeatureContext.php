@@ -9,12 +9,97 @@ use Behat\Gherkin\Node\TableNode;
  */
 class FeatureContext implements Context
 {
-    protected $response = null;
+
     protected $username = null;
     protected $password = null;
     protected $client = null;
     protected $parameters = null;
 
+    /**
+     * Getters and Setters
+     */
+
+    protected $response = null;
+
+    /**
+     * @return null
+     */
+    public function getResponse()
+    {
+        return $this->response;
+    }
+
+    /**
+     * @param null $response
+     */
+    public function setResponse($response): void
+    {
+        $this->response = $response;
+    }
+
+    /**
+     * @return null
+     */
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    /**
+     * @param null $username
+     */
+    public function setUsername($username): void
+    {
+        $this->username = $username;
+    }
+
+    /**
+     * @return null
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    /**
+     * @param null $password
+     */
+    public function setPassword($password): void
+    {
+        $this->password = $password;
+    }
+
+    /**
+     * @return null
+     */
+    public function getClient()
+    {
+        return $this->client;
+    }
+
+    /**
+     * @param null $client
+     */
+    public function setClient($client): void
+    {
+        $this->client = $client;
+    }
+
+    /**
+     * @return null
+     */
+    public function getParameters()
+    {
+        return $this->parameters;
+    }
+
+    /**
+     * @param null $parameters
+     */
+    public function setParameters($parameters): void
+    {
+        $this->parameters = $parameters;
+    }
 
 
     /**

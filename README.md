@@ -16,7 +16,7 @@ In the behat.yaml file, replace username and password with above approach.
 I used a GitHub generated token and my GitHub username and all works fine.
 
 ## Links
-I have installed Behat and Composer my parent project directory.
+I have installed Behat and Composer in my parent project directory.
 Here are the links to install them both;
 - https://docs.behat.org/en/latest/quick_start.html#installation
 - https://getcomposer.org/download/
