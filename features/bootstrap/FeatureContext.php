@@ -9,17 +9,17 @@ use Behat\Gherkin\Node\TableNode;
  */
 class FeatureContext implements Context
 {
-
+    protected $response = null;
     protected $username = null;
     protected $password = null;
     protected $client = null;
     protected $parameters = null;
+    protected array $table;
 
     /**
      * Getters and Setters
      */
 
-    protected $response = null;
 
     /**
      * @return null
@@ -251,7 +251,7 @@ class FeatureContext implements Context
 
          if(!$parameters == $this->iRequestAListOfMyRepositories()){
           $this->client->post('/user/repos', ['body' => $parameters]);
-          $this->iExpectASuccessfulRequest();;
+          $this->iExpectASuccessfulRequest();
          } else{
              throw new Exception("The repo $arg1 already exists.");
          }
@@ -307,5 +307,64 @@ class FeatureContext implements Context
         $this->response = $this->client->delete($delete);
         $this->iExpectAResponseCode(204);
     }
+
+    /**
+     * @Given I have the following repositories:
+     * @throws Exception
+     */
+    public function iHaveTheFollowingRepositories(TableNode $table)
+    {
+        $this->table = $table->getRows(); //get a list of rows loaded in memory
+        array_shift($this->table);//get rid of the first row. that is just the table header which we don't need
+
+        foreach ($this->table as $id => $row){//get the contents of our table
+
+            $this->table[$id] ['name'] = $row[0] . '/' .$row[1]; //GitHub refers to projects as owner/project name
+
+          $this->response = $this->client->get('/repos/' . $row[0] . '/' .$row[1]);
+           $this->iExpectAResponseCode(200);
+            }
+    }
+
+    /**
+     * @When I watch each repository
+     */
+    public function iWatchEachRepository()
+    {
+        $parameters = json_encode(['subscribed' => 'true']);
+
+        foreach ($this->table as $row){
+            $watch_url = '/repos/' .$row['name'] ;
+            $this->client->get($watch_url, ['body' => $parameters]);
+        }
+    }
+
+
+    /**
+     * @Then My watch list will include those repositories
+     * @throws Exception
+     */
+    public function myWatchListWillIncludeThoseRepositories()
+    {
+        $watch_url = '/users/' . $this->username . '/subscriptions';
+        $this->response = $this->client->get($watch_url);
+        $watches = $this->getBodyAsJson();
+
+        foreach($this->table as $row){
+            $fullname = $row['name'];
+
+            // Check to see if the name from our project itself that we've
+            // already put together does that exist in the watches that we have currently
+            foreach ($watches as $watch){
+                if($fullname == $watch['full_name']){
+                    break 2; //break at 2 loops
+                }
+            }
+            throw new Exception("Error!" .$this->username . " is not watching " . $fullname);
+        }
+
+
+    }
+
 
 }
